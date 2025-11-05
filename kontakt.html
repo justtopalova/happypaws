@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакти | Happy Paws</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Happy Paws 🐾</h1>
+    <nav>
+      <a href="index.html">Начало</a>
+      <a href="uslugi.html">Услуги</a>
+      <a href="galeria.html">Галерия</a>
+      <a href="kontakt.html">Контакти</a>
+    </nav>
+  </header>
+
+  <main class="info fade-in">
+    <h2>Свържете се с нас</h2>
+    <p>📍 Адрес: ул. „Весела лапа“ 15, София</p>
+    <p>📞 Телефон: 0888 123 456</p>
+    <p>📧 Email: info@happypaws.bg</p>
+    <p>Работно време: Пон – Съб: 09:00 – 18:00</p>
+
+    <!-- Демонстрационна форма (не изпраща реален имейл) -->
+    <form id="contactForm" class="contact-form" onsubmit="handleForm(event)">
+      <input type="text" name="name" placeholder="Вашето име" required>
+      <input type="email" name="email" placeholder="Вашият имейл" required>
+      <textarea name="message" placeholder="Вашето съобщение..." rows="5" required></textarea>
+      <button type="submit">Изпрати</button>
+    </form>
+
+    <!-- Google Map (примерен embed, промени според нужда) -->
+    <div class="map-wrap">
+      <iframe
+        src="https://www.google.com/maps?q=София,+ул.+Весела+лапа+15&output=embed"
+        width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Happy Paws | Всички права запазени</p>
+  </footer>
+
+  <script>
+    function handleForm(e) {
+      e.preventDefault();
+      // Демонстрация: валидира input и показва потвърждение
+      const form = document.getElementById('contactForm');
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+      if (!name || !email || !message) {
+        alert('Моля, попълнете всички полета.');
+        return;
+      }
+      // Тук можеш да свържеш Formspree или друг сървис — в момента е демо
+      alert('Благодарим! Съобщението е получено (демо).');
+      form.reset();
+    }
+
+    // Scroll reveal for this page
+    const revealEls = document.querySelectorAll('.fade-in');
+    const revealOnScroll = () => {
+      revealEls.forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight - 100) el.classList.add('visible');
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Галерия | Happy Paws</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Happy Paws 🐾</h1>
+    <nav>
+      <a href="index.html">Начало</a>
+      <a href="uslugi.html">Услуги</a>
+      <a href="galeria.html">Галерия</a>
+      <a href="kontakt.html">Контакти</a>
+    </nav>
+  </header>
+
+  <section class="gallery-section fade-in">
+    <h2>Галерия</h2>
+    <p>Разгледайте нашите щастливи клиенти — кликнете върху снимката, за да я видите в голям размер.</p>
+
+    <div class="gallery-grid">
+      <!-- Добавете вашите снимки в папката images/ и сменете имената -->
+      <img src="hero.jpg (15).jpg" alt="Куче 1" onclick="openImage(this)">
+      <img src="hero.jpg (14).jpg" alt="Куче 2" onclick="openImage(this)">
+      <img src="hero.jpg (13).jpg" alt="Куче 3" onclick="openImage(this)">
+      <img src="hero.jpg (12).jpg" alt="Куче 4" onclick="openImage(this)">
+      <img src="hero.jpg (11).jpg" alt="Куче 5" onclick="openImage(this)">
+      <img src="hero.jpg (10).jpg" alt="Куче 6" onclick="openImage(this)">
+      <img src="hero.jpg (8).jpg" alt="Куче 6" onclick="openImage(this)">
+      <img src="hero.jpg (9).jpg" alt="Куче 6" onclick="openImage(this)">
+      <img src="hero.jpg (7).jpg" alt="Куче 6" onclick="openImage(this)">
+      <img src="hero.jpg (6).jpg" alt="Куче 6" onclick="openImage(this)">
+    </div>
+  </section>
+
+  <div id="lightbox" class="lightbox" onclick="closeImage()">
+    <img id="lightbox-img" src="" alt="Голяма снимка">
+  </div>
+
+  <footer>
+    <p>© 2025 Happy Paws | Всички права запазени</p>
+  </footer>
+
+  <script>
+    function openImage(el) {
+      document.getElementById('lightbox-img').src = el.src;
+      document.getElementById('lightbox').style.display = 'flex';
+    }
+    function closeImage() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.fade-in');
+    const revealOnScroll = () => {
+      revealEls.forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight - 100) el.classList.add('visible');
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+</body>
+</html>

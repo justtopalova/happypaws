@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Paws - Груминг за кучета</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Happy Paws 🐾</h1>
+    <nav>
+      <a href="index.html">Начало</a>
+      <a href="uslugi.html">Услуги</a>
+      <a href="galeria.html">Галерия</a>
+      <a href="kontakt.html">Контакти</a>
+    </nav>
+  </header>
+
+  <section class="hero fade-in">
+    <div class="hero-content">
+      <h2>Професионален груминг за щастливи кучета!</h2>
+      <p>Подстригване, къпане и грижа с любов за всеки любимец.</p>
+      <button class="cta" onclick="window.location.href='kontakt.html'">Свържи се с нас</button>
+    </div>
+  </section>
+
+  <!-- Featured static images с ефекти (остават статични, с hover/animation) -->
+  <section class="featured-images">
+    <h3>Нашите любими моменти 🐕</h3>
+    <div class="image-row">
+      <div class="img-box"><img src="hero.jpg (13).jpg" alt="Щастливо куче"></div>
+      <div class="img-box"><img src="hero.jpg (14).jpg" alt="Куче след груминг"></div>
+      <div class="img-box"><img src="hero.jpg (15).jpg" alt="Кученце с панделка"></div>
+    </div>
+  </section>
+
+  <section class="info fade-in">
+    <h3>Добре дошли в Happy Paws!</h3>
+    <p>Ние предлагаме професионални услуги по груминг – защото вашето куче заслужава най-доброто. При нас ще намерите уют, внимание и качествена грижа. Всяко куче си тръгва щастливо, чисто и красиво!</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Happy Paws | Всички права запазени</p>
+  </footer>
+
+  <!-- Scroll-to-top бутон -->
+  <button id="toTop" title="Нагоре">⬆</button>
+
+  <script>
+    // Scroll reveal (fade-in on scroll)
+    const revealEls = document.querySelectorAll('.fade-in');
+    const revealOnScroll = () => {
+      revealEls.forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight - 100) el.classList.add('visible');
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+
+    // Scroll-to-top
+    const toTop = document.getElementById('toTop');
+    window.addEventListener('scroll', () => {
+      toTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+  </script>
+</body>
+</html>
+
